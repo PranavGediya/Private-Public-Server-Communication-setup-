@@ -29,6 +29,15 @@ resource "aws_vpc_security_group_ingress_rule" "public_web_ssh" {
   cidr_ipv4         = "0.0.0.0/0"
 }
 
+resource "aws_vpc_security_group_ingress_rule" "public_web_ssh" {
+  security_group_id = aws_security_group.public_web.id
+  description       = "ICMP"
+  ip_protocol       = "icmp"
+  from_port         = "-1"
+  to_port           = "-1"
+  cidr_ipv4         = "0.0.0.0/0"
+}
+
 resource "aws_vpc_security_group_egress_rule" "public_web_all" {
   security_group_id = aws_security_group.public_web.id
   description       = "All outbound"
