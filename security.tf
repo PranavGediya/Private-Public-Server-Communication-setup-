@@ -29,7 +29,7 @@ resource "aws_vpc_security_group_ingress_rule" "public_web_ssh" {
   cidr_ipv4         = "0.0.0.0/0"
 }
 
-resource "aws_vpc_security_group_ingress_rule" "public_web_ssh" {
+resource "aws_vpc_security_group_ingress_rule" "public_web_icmp" {
   security_group_id = aws_security_group.public_web.id
   description       = "ICMP"
   ip_protocol       = "icmp"
